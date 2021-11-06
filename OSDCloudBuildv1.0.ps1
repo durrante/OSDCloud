@@ -79,11 +79,8 @@ start PowerShell -NoL -W Mi
 start "Install-Module OSD" /wait PowerShell -NoL -C Install-Module OSD -Force -Verbose
 
 :: Start-OOBEDeploy
-:: There are multiple example lines. Make sure only one is uncommented
 :: The next line assumes that you have a configuration saved in C:\ProgramData\OSDeploy\OSDeploy.OOBEDeploy.json
 start "Start-OOBEDeploy" PowerShell -NoL -C Start-OOBEDeploy
-:: The next line assumes that you do not have a configuration saved in or want to ensure that these are applied
-REM start "Start-OOBEDeploy" PowerShell -NoL -C Start-OOBEDeploy -AddNetFX3 -UpdateDrivers -UpdateWindows
 
 exit
 '@
@@ -108,13 +105,8 @@ start PowerShell -NoL -W Mi
 start "Install-Module AutopilotOOBE" /wait PowerShell -NoL -C Install-Module AutopilotOOBE -Force -Verbose
 
 :: Start-AutopilotOOBE
-:: There are multiple example lines. Make sure only one is uncommented
 :: The next line assumes that you have a configuration saved in C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json
 start "Start-AutopilotOOBE" PowerShell -NoL -C Start-AutopilotOOBE
-:: The next line is how you would apply a CustomProfile
-REM start "Start-AutopilotOOBE" PowerShell -NoL -C Start-AutopilotOOBE -CustomProfile OSDeploy
-:: The next line is how you would configure everything from the command line
-REM start "Start-AutopilotOOBE" PowerShell -NoL -C Start-AutopilotOOBE -Title 'OSDeploy Autopilot Registration' -GroupTag Enterprise -GroupTagOptions Development,Enterprise -Assign
 
 exit
 '@
@@ -123,4 +115,6 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 #   PostOS
 #   Restart-Computer
 #================================================
+Write-Host  -ForegroundColor Cyan "Autopilot Readiness Build has now completed, ensure that the additional steps are completed before handover, the device will now restart."
+$Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 Restart-Computer
