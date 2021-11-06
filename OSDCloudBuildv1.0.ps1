@@ -1,5 +1,6 @@
 #================================================
 #   OSDCloud Build Sequence
+#   WARNING: Will wipe hard drive without prompt!!
 #   Windows 10 21H1 Pro en-gb Retail
 #   Deploys OS
 #   Updates OS
