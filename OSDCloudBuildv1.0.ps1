@@ -1,7 +1,10 @@
 #================================================
-#   OSDCloud Task Sequence
+#   OSDCloud Build Sequence
 #   Windows 10 21H1 Pro en-gb Retail
-#   No Autopilot
+#   Deploys OS
+#   Updates OS
+#   Removes AppX Packages from OS
+#   Harvests Hardware Hash and uploads to Autopilot Service
 #   No Office Deployment Tool
 #================================================
 #   PreOS
