@@ -46,8 +46,7 @@ $Params = @{
     Assign = $true
     PostAction = 'Restart'
     Run = 'PowerShell'
-	Disabled = 'Assign'
-	Docs = 'https://docs.microsoft.com/en-gb/mem/autopilot/windows-autopilot'
+    Disabled = 'Assign'
 }
 AutopilotOOBE @Params
 #================================================
