@@ -7,7 +7,6 @@
 #   Removes AppX Packages from OS
 #   No Office Deployment Tool
 #   Creates post deployment scripts for Autopilot
-#   Installs latest versions of Edge and OneDrive
 #================================================
 #   PreOS
 #   Set VM Display Resolution
@@ -45,6 +44,7 @@ $Params = @{
     GroupTagOptions = 'ISL'
     Hidden = 'AddToGroup','AssignedComputerName','AssignedUser','PostAction'
     Assign = $true
+    PostAction = 'Restart'
     Run = 'PowerShell'
 	Disabled = 'Assign'
 	Docs = 'https://docs.microsoft.com/en-gb/mem/autopilot/windows-autopilot'
