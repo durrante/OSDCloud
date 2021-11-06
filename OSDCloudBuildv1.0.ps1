@@ -6,6 +6,8 @@
 #   Removes AppX Packages from OS
 #   Harvests Hardware Hash and uploads to Autopilot Service
 #   No Office Deployment Tool
+#   Creates post deployment scripts
+#   Installs latest versions of Edge and OneDrive
 #================================================
 #   PreOS
 #   Set VM Display Resolution
