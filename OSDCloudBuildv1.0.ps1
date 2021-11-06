@@ -35,25 +35,14 @@ Install-Module AutopilotOOBE -Force
 Import-Module AutopilotOOBE -Force
 
 $Params = @{
-    "Assign":  {
-                   "IsPresent":  true
-               },
-    "AssignedComputerNameExample":  "Azure AD Join Only",
-    "GroupTagOptions":  [
-                            "ISL"
-                        ],
-    "Hidden":  [
-                   "AddToGroup",
-                   "AssignedComputerName",
-                   "AssignedUser"
-               ],
-    "PostAction":  "Restart",
-    "Run":  "PowerShell",
-	"Disabled":	"Assign"
-    "Docs":  "https://docs.microsoft.com/en-us/mem/autopilot/windows-autopilot",
-    "Title":  "Autopilot Registration"
+    Title = 'Autopilot Registration'
+    GroupTagOptions = 'ISL'
+    Hidden = 'AddToGroup','AssignedComputerName','AssignedUser','PostAction'
+    Assign = $true
+    Run = 'PowerShell'
+	Disabled = 'Assign'
+	Docs = 'https://docs.microsoft.com/en-gb/mem/autopilot/windows-autopilot'
 }
-
 AutopilotOOBE @Params
 #================================================
 #   WinPE PostOS Sample
