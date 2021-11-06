@@ -1,6 +1,6 @@
 #================================================
 #   OSDCloud Task Sequence
-#   Windows 10 21H1 Pro en-us Retail
+#   Windows 10 21H1 Pro en-gb Retail
 #   No Autopilot
 #   No Office Deployment Tool
 #================================================
