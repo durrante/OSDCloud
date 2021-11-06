@@ -111,6 +111,20 @@ start "Start-AutopilotOOBE" PowerShell -NoL -C Start-AutopilotOOBE
 exit
 '@
 $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -Force
+
+#================================================
+#   PostOS
+#   Installing Latest Version of OneDrive for All Users
+#================================================
+$URL = "https://go.microsoft.com/fwlink/?linkid=844652"
+Write-Host "Downloading OneDriveSetup"
+$dest = "$($env:TEMP)\OneDriveSetup.exe"
+Invoke-WebRequest -uri $url -OutFile $dest
+Write-Host "Installing: $dest"
+$proc = Start-Process $dest -ArgumentList "/allusers /Silent" -WindowStyle Hidden -PassThru
+$proc.WaitForExit()
+Write-Host "OneDriveSetup exit code: $($proc.ExitCode)"
+
 #================================================
 #   PostOS
 #   Restart-Computer
