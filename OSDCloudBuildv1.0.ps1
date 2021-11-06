@@ -5,8 +5,14 @@
 #   No Office Deployment Tool
 #================================================
 #   PreOS
-#   Install and Import OSD Module
+#   Set VM Display Resolution
+if ((Get-MyComputerModel) -match 'Virtual') {
+    Write-Host  -ForegroundColor Cyan "Setting Display Resolution to 1600x"
+    Set-DisRes 1600
+}
 #================================================
+#   PreOS
+#   Install and Import OSD Module
 Install-Module OSD -Force
 Import-Module OSD -Force
 #================================================
