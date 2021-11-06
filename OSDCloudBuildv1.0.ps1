@@ -140,5 +140,5 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 #================================================
 Write-Host -Foregroundcolor Red "IMPORTANT! - " -Nonewline
 Write-Host -ForegroundColor Green "Autopilot Readiness Build has now completed, ensure that the additional steps are completed before handover, click any button to proceed and the device will restart."
-$Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+read-host "Press ANY key to continue..."
 Wpeutil Reboot
