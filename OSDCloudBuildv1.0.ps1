@@ -77,28 +77,6 @@ set path=%path%;C:\Program Files\WindowsPowerShell\Scripts
 :: Open and Minimize a PowerShell instance just in case
 start PowerShell -NoL -W Mi
 
-:: Download and Install latest version of OneDrive
-;Findstr -rbv ; %0 | powershell -c -
-$URL = "https://go.microsoft.com/fwlink/?linkid=844652"
-Write-Host -ForegroundColor Green "Downloading OneDriveSetup"
-$dest = "$($env:TEMP)\OneDriveSetup.exe"
-Invoke-WebRequest -uri $url -OutFile $dest
-Write-Host -ForegroundColor Green "Installing: $dest"
-$proc = Start-Process $dest -ArgumentList "/allusers /Silent" -WindowStyle Hidden -PassThru
-$proc.WaitForExit()
-Write-Host -ForegroundColor Green "OneDriveSetup exit code: $($proc.ExitCode)"
-
-:: Download and Install latest version of Edge
-;Findstr -rbv ; %0 | powershell -c -
-$URL = "http://go.microsoft.com/fwlink/?LinkID=2093437"
-Write-Host -ForegroundColor Green "Downloading Edge"
-$dest = "$($env:TEMP)\MicrosoftEdgeEnterpriseX64.msi"
-Invoke-WebRequest -uri $url -OutFile $dest
-Write-Host -ForegroundColor Green "Installing: $dest"
-$proc = Start-Process 'msiexec.exe' -ArgumentList "/i $dest /qn" -NoNewWindow -Wait -PassThru
-$proc.WaitForExit()
-Write-Host -ForegroundColor Green "Edge exit code: $($proc.ExitCode)"
-
 :: Install the latest OSD Module
 start "Install-Module OSD" /wait PowerShell -NoL -C Install-Module OSD -Force -Verbose
 
