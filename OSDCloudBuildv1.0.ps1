@@ -77,6 +77,26 @@ set path=%path%;C:\Program Files\WindowsPowerShell\Scripts
 :: Open and Minimize a PowerShell instance just in case
 start PowerShell -NoL -W Mi
 
+:: Download and Install latest version of OneDrive
+start powershell $URL = "https://go.microsoft.com/fwlink/?linkid=844652"
+start powershell Write-Host "Downloading OneDriveSetup"
+start powershell $dest = "$($env:TEMP)\OneDriveSetup.exe"
+start powershell Invoke-WebRequest -uri $url -OutFile $dest
+start powershell Write-Host "Installing: $dest"
+start powershell $proc = Start-Process $dest -ArgumentList "/allusers /Silent" -WindowStyle Hidden -PassThru
+start powershell $proc.WaitForExit()
+start powershell Write-Host "OneDriveSetup exit code: $($proc.ExitCode)"
+
+:: Download and Install latest version of Edge
+start powershell $URL = "http://go.microsoft.com/fwlink/?LinkID=2093437"
+start powershell Write-Host "Downloading Edge"
+start powershell $dest = "$($env:TEMP)\MicrosoftEdgeEnterpriseX64.msi"
+start powershell Invoke-WebRequest -uri $url -OutFile $dest
+start powershell Write-Host "Installing: $dest"
+start powershell $proc = Start-Process 'msiexec.exe' -ArgumentList "/i $dest /qn" -NoNewWindow -Wait -PassThru
+start powershell $proc.WaitForExit()
+start powershell Write-Host "Edge exit code: $($proc.ExitCode)"
+
 :: Install the latest OSD Module
 start "Install-Module OSD" /wait PowerShell -NoL -C Install-Module OSD -Force -Verbose
 
@@ -116,34 +136,8 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 
 #================================================
 #   PostOS
-#   Installing latest version of OneDrive for all users
-#================================================
-$URL = "https://go.microsoft.com/fwlink/?linkid=844652"
-Write-Host "Downloading OneDriveSetup"
-$dest = "$($env:TEMP)\OneDriveSetup.exe"
-Invoke-WebRequest -uri $url -OutFile $dest
-Write-Host "Installing: $dest"
-$proc = Start-Process $dest -ArgumentList "/allusers /Silent" -WindowStyle Hidden -PassThru
-$proc.WaitForExit()
-Write-Host "OneDriveSetup exit code: $($proc.ExitCode)"
-
-#================================================
-#   PostOS
-#   Installing latest version of Microsoft Edge
-#================================================
-$URL = "http://go.microsoft.com/fwlink/?LinkID=2093437"
-Write-Host "Downloading Edge"
-$dest = "$($env:TEMP)\MicrosoftEdgeEnterpriseX64.msi"
-Invoke-WebRequest -uri $url -OutFile $dest
-Write-Host "Installing: $dest"
-$proc = Start-Process 'msiexec.exe' -ArgumentList "/i $dest /qn" -NoNewWindow -Wait -PassThru
-$proc.WaitForExit()
-Write-Host "Edge exit code: $($proc.ExitCode)"
-
-#================================================
-#   PostOS
 #   Restart-Computer
 #================================================
-Write-Host  -ForegroundColor Cyan "Autopilot Readiness Build has now completed, ensure that the additional steps are completed before handover, the device will now restart."
+Write-Host  -ForegroundColor Cyan "Autopilot Readiness Build has now completed, ensure that the additional steps are completed before handover, click any button to proceed and then the device will restart."
 $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 Restart-Computer
