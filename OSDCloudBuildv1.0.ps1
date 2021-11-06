@@ -5,9 +5,8 @@
 #   Deploys OS
 #   Updates OS
 #   Removes AppX Packages from OS
-#   Harvests Hardware Hash and uploads to Autopilot Service
 #   No Office Deployment Tool
-#   Creates post deployment scripts
+#   Creates post deployment scripts for Autopilot
 #   Installs latest versions of Edge and OneDrive
 #================================================
 #   PreOS
