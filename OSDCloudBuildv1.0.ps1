@@ -114,7 +114,7 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 
 #================================================
 #   PostOS
-#   Installing Latest Version of OneDrive for All Users
+#   Installing latest version of OneDrive for all users
 #================================================
 $URL = "https://go.microsoft.com/fwlink/?linkid=844652"
 Write-Host "Downloading OneDriveSetup"
@@ -124,6 +124,19 @@ Write-Host "Installing: $dest"
 $proc = Start-Process $dest -ArgumentList "/allusers /Silent" -WindowStyle Hidden -PassThru
 $proc.WaitForExit()
 Write-Host "OneDriveSetup exit code: $($proc.ExitCode)"
+
+#================================================
+#   PostOS
+#   Installing latest version of Microsoft Edge
+#================================================
+$URL = "http://go.microsoft.com/fwlink/?LinkID=2093437"
+Write-Host "Downloading Edge"
+$dest = "$($env:TEMP)\MicrosoftEdgeEnterpriseX64.msi"
+Invoke-WebRequest -uri $url -OutFile $dest
+Write-Host "Installing: $dest"
+$proc = Start-Process $dest -ArgumentList "qn" -WindowStyle Hidden -PassThru
+$proc.WaitForExit()
+Write-Host "Edge exit code: $($proc.ExitCode)"
 
 #================================================
 #   PostOS
