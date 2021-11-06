@@ -134,7 +134,7 @@ Write-Host "Downloading Edge"
 $dest = "$($env:TEMP)\MicrosoftEdgeEnterpriseX64.msi"
 Invoke-WebRequest -uri $url -OutFile $dest
 Write-Host "Installing: $dest"
-$proc = Start-Process $dest -ArgumentList "qn" -WindowStyle Hidden -PassThru
+$proc = Start-Process $dest -ArgumentList "/qn" -WindowStyle Hidden -PassThru
 $proc.WaitForExit()
 Write-Host "Edge exit code: $($proc.ExitCode)"
 
