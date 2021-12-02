@@ -115,7 +115,7 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 
 #================================================
 #   PostOS
-#   Restart-Computer
+#   Shutdown-Computer & Display Message
 #================================================
 Write-Host -Foregroundcolor Red "IMPORTANT! - " -Nonewline
 Read-Host "Ensure to run the OOBEDeploy.cmd to complete the Autopilot readiness build, device will now shutdown
