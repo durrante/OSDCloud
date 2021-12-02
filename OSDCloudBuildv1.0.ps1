@@ -119,5 +119,5 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 #================================================
 Write-Host -Foregroundcolor Red "IMPORTANT! - " -Nonewline
 Read-Host "Ensure to run the OOBEDeploy.cmd to complete the Autopilot readiness build, device will now shutdown
-,remember to change the boot order before proceeding with phase 2, press the ENTER key to continue...."
+,remember to update the boot order to HDD before proceeding with phase 2, press the ENTER key to continue...."
 Wpeutil Shutdown
