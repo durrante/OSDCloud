@@ -118,6 +118,5 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 #   Restart-Computer
 #================================================
 Write-Host -Foregroundcolor Red "IMPORTANT! - " -Nonewline
-Read-Host "Image has now been applied, ensure to run the OOBEDeploy.cmd to complete the Autopilot readiness build, press the ENTER key to continue...."
-Read-Host "The device will now restart, press the ENTER key to continue..."
+Read-Host "Ensure to run the OOBEDeploy.cmd to complete the Autopilot readiness build, press the ENTER key to continue...."
 Wpeutil Reboot
