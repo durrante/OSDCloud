@@ -1,7 +1,7 @@
 #================================================
 #   OSDCloud Build Sequence
 #   WARNING: Will wipe hard drive without prompt!!
-#   Windows 10 21H1 Pro en-gb Retail
+#   Windows 10 21H2 Pro en-gb Retail
 #   Deploys OS
 #   Updates OS
 #   Removes AppX Packages from OS
@@ -23,7 +23,7 @@ Import-Module OSD -Force
 #   [OS] Start-OSDCloud with Params
 #================================================
 $Params = @{
-    OSBuild = "21H1"
+    OSBuild = "21H2"
     OSEdition = "Pro"
     OSLanguage = "en-gb"
     OSLicense = "Retail"
@@ -118,6 +118,6 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 #   Restart-Computer
 #================================================
 Write-Host -Foregroundcolor Red "IMPORTANT! - " -Nonewline
-Write-Host -ForegroundColor Green "Autopilot Readiness Build has now completed, ensure that the additional steps are completed before handover, click any button to proceed and the device will restart."
+Read-Host "Image has now been applied, ensure to run the OOBEDeploy.cmd to complete the Autopilot readiness build, press the ENTER key to continue...."
 Read-Host "The device will now restart, press the ENTER key to continue..."
 Wpeutil Reboot
