@@ -25,7 +25,7 @@ Import-Module OSD -Force
 $Params = @{
     OSBuild = "21H2"
     OSEdition = "Pro"
-    OSVersion = 'Windows 11'
+    OSVersion = "Windows 11"
     OSLanguage = "en-gb"
     OSLicense = "Retail"
     SkipAutopilot = $true
