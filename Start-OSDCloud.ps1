@@ -16,4 +16,4 @@ Import-Module OSD -Force
 
 #Start OSDCloudScriptPad
 Write-Host -ForegroundColor Green "Start OSDPad"
-Start-OSDPad -RepoOwner Durrante -RepoName OSDCloud -RepoFolder OSDCloudDeploy -BrandingTitle 'OSDCloud Deployment'
+Start-OSDPad -RepoOwner Durrante -RepoName OSDCloud -RepoFolder OSDCloudDeploy -Hide Script -BrandingTitle 'OSDCloud Deployment'
