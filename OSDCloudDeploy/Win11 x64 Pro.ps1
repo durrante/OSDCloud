@@ -20,12 +20,15 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 Install-Module OSD -Force
 Import-Module OSD -Force
 #================================================
+#   [OS] Set Global Conditions
+#================================================
+$Global:StartOSDCloudGUI = @{OSVersion = 'Windows 11'}
+#================================================
 #   [OS] Start-OSDCloud with Params
 #================================================
 $Params = @{
     OSBuild = "21H2"
     OSEdition = "Pro"
-    OSVersion = "Windows 11"
     OSLanguage = "en-gb"
     OSLicense = "Retail"
     SkipAutopilot = $true
