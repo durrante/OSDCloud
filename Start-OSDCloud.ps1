@@ -9,7 +9,7 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 
 #Update OSD Module
 Write-Host -ForegroundColor Green "Updating OSD PowerShell Module"
-Install-Module OSD -Force
+Install-Module OSD -Force -AllowClobber -SkipPublisherCheck
 
 Write-Host  -ForegroundColor Green "Importing OSD PowerShell Module"
 Import-Module OSD -Force
