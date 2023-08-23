@@ -41,7 +41,7 @@ Import-Module AutopilotOOBE -Force
 
 $Params = @{
     Title = 'Autopilot Registration'
-    GroupTagOptions = '2021', 'DILKIOSK', 'EPAS', 'EPAA', 'ISL'
+    GroupTagOptions = '2021', 'Base', 'DILKIOSK', 'EPAS', 'EPAA', 'ISL'
     Hidden = 'AddToGroup','AssignedComputerName','AssignedUser','PostAction'
     Assign = $true
     PostAction = 'Restart'
@@ -55,7 +55,7 @@ AutopilotOOBE @Params
 #================================================
 $Params = @{
     Autopilot = $true
-    RemoveAppx = "CommunicationsApps","OfficeHub","People","Skype","Solitaire","Xbox","ZuneMusic","ZuneVideo"
+    RemoveAppx = "CommunicationsApps","OfficeHub","People","Skype","Solitaire","Xbox","ZuneMusic","ZuneVideo","Getstarted","GetHelp","BingWeather","WindowsMaps","BingNews"
     UpdateDrivers = $true
     UpdateWindows = $true
 }
