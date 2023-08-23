@@ -129,7 +129,7 @@ Write-Host -ForegroundColor Yellow "********************************************
 
 # Display the instructions in Cyan for better readability
 Write-Host -ForegroundColor Cyan -NoNewline "INSTRUCTIONS: "
-Write-Host -ForegroundColor White "Ensure to run the OOBEDeploy.cmd to complete the Autopilot readiness build. The device will now shut down."
+Write-Host -ForegroundColor White "Ensure to run the C:\Windows\OOBEDeploy.cmd to complete the Autopilot readiness build. The device will now shut down."
 
 # Prompt the user to press the ENTER key to continue
 Write-Host -ForegroundColor Green "Press the ENTER key to continue...."
