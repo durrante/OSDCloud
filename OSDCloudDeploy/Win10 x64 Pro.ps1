@@ -117,7 +117,20 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 #   PostOS
 #   Shutdown-Computer & Display Message
 #================================================
-Write-Host -Foregroundcolor Red "IMPORTANT! - " -Nonewline
-Read-Host "Ensure to run the OOBEDeploy.cmd to complete the Autopilot readiness build, device will now shutdown
-,remember to update the boot order to HDD before proceeding with phase 2, press the ENTER key to continue...."
+# Display a banner of asterisks for emphasis
+Write-Host -ForegroundColor Yellow "*************************************************************************"
+
+# Display the word "IMPORTANT!" in red and enlarged text
+Write-Host -ForegroundColor Red "`n`n`n                  IMPORTANT! IMPORTANT! IMPORTANT!`n`n`n"
+
+# Display another banner of asterisks for emphasis
+Write-Host -ForegroundColor Yellow "*************************************************************************"
+
+# Display the instructions in Cyan for better readability
+Write-Host -ForegroundColor Cyan -NoNewline "INSTRUCTIONS: "
+Write-Host -ForegroundColor White "Ensure to run the OOBEDeploy.cmd to complete the Autopilot readiness build. The device will now shut down."
+
+# Prompt the user to press the ENTER key to continue
+Write-Host -ForegroundColor Green "Press the ENTER key to continue...."
+$null = Read-Host
 Wpeutil Shutdown
