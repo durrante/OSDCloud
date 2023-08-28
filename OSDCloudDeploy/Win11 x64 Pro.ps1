@@ -17,8 +17,8 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 #================================================
 #   PreOS
 #   Install and Import OSD Module
-Install-Module OSD -Force
-Import-Module OSD -Force
+Install-Module OSD -Force -AllowClobber -SkipPublisherCheck
+Import-Module OSD -Force 
 
 #================================================
 #   [OS] Start-OSDCloud with Params
@@ -37,7 +37,7 @@ Start-OSDCloud @Params
 #   WinPE PostOS Sample
 #   AutopilotOOBE Offline Staging
 #================================================
-Install-Module AutopilotOOBE -Force
+Install-Module AutopilotOOBE -Force -AllowClobber -SkipPublisherCheck
 Import-Module AutopilotOOBE -Force
 
 $Params = @{
@@ -56,7 +56,7 @@ AutopilotOOBE @Params
 #================================================
 $Params = @{
     Autopilot = $true
-    RemoveAppx = "CommunicationsApps","OfficeHub","People","Skype","Solitaire","Xbox","ZuneMusic","ZuneVideo","Getstarted","GetHelp","BingWeather","WindowsMaps","BingNews"
+    RemoveAppx = "CommunicationsApps","OfficeHub","People","Skype","Solitaire","Xbox","ZuneMusic","ZuneVideo","GetHelp","BingWeather","WindowsMaps","BingNews"
     UpdateDrivers = $true
     UpdateWindows = $true
 }
