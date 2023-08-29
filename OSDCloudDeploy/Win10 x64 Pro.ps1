@@ -16,6 +16,8 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 }
 #================================================
 #   PreOS
+# Set TLS to 1.2
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 #   Install and Import OSD Module
 Install-Module OSD -Force -AllowClobber -SkipPublisherCheck
 Import-Module OSD -Force
