@@ -58,7 +58,7 @@ AutopilotOOBE @Params
 #================================================
 $Params = @{
     Autopilot = $true
-    RemoveAppx = "CommunicationsApps","OfficeHub","People","Skype","Solitaire","Xbox","ZuneMusic","ZuneVideo","GetHelp","BingWeather","WindowsMaps","BingNews"
+    RemoveAppx = "CommunicationsApps","OfficeHub","People","Skype","Solitaire","Xbox","ZuneMusic","ZuneVideo","GetHelp","BingWeather","GamingApp","WindowsMaps","BingNews","MicrosoftTeams"
     UpdateDrivers = $true
     UpdateWindows = $true
 }
