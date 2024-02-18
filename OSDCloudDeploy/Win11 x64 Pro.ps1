@@ -118,7 +118,7 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 
 #================================================
 #   PostOS
-#   Shutdown-Computer & Display Message
+#   Restart-Computer & Display Message
 #================================================
 # Display a banner of asterisks for emphasis
 Write-Host -ForegroundColor Yellow "*************************************************************************"
@@ -131,9 +131,17 @@ Write-Host -ForegroundColor Yellow "********************************************
 
 # Display the instructions in Cyan for better readability
 Write-Host -ForegroundColor Cyan -NoNewline "INSTRUCTIONS: "
-Write-Host -ForegroundColor White "Ensure to run the C:\Windows\OOBEDeploy.cmd to complete the Autopilot readiness build. The device will now shut down."
+Write-Host -ForegroundColor White "Ensure to run the C:\Windows\OOBEDeploy.cmd to complete the Autopilot readiness build."
 
-# Prompt the user to press the ENTER key to continue
-Write-Host -ForegroundColor Green "Press the ENTER key to continue...."
-$null = Read-Host
-Wpeutil Shutdown
+# Load System.Windows.Forms for MessageBox functionality
+Add-Type -AssemblyName System.Windows.Forms
+
+# Define the message and title for the MessageBox
+$message = "Please remove the build USB stick and click OK to restart your device and continue with the OSDCloud setup process."
+$title = "Action Required Before Restart"
+
+# Show the MessageBox and wait for the user to click OK
+[System.Windows.Forms.MessageBox]::Show($message, $title, [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
+
+# Restart the device instead of shutting it down
+wpeutil reboot
