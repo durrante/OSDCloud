@@ -19,7 +19,9 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 # Set TLS to 1.2
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 #   Install and Import OSD Module
+Write-Host -ForegroundColor Green "Updating OSD PowerShell Module"
 Install-Module OSD -Force -AllowClobber -SkipPublisherCheck
+Write-Host  -ForegroundColor Green "Importing OSD PowerShell Module"
 Import-Module OSD -Force 
 
 #================================================
