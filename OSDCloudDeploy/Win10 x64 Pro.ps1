@@ -143,3 +143,4 @@ $title = "Action Required Before Restart"
 [System.Windows.Forms.MessageBox]::Show($message, $title, [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
 
 # Restart the device 
+wpeutil reboot
