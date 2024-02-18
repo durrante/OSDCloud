@@ -143,5 +143,5 @@ $title = "Action Required Before Restart"
 # Show the MessageBox and wait for the user to click OK
 [System.Windows.Forms.MessageBox]::Show($message, $title, [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
 
-# Restart the device instead of shutting it down
+# Restart the device
 wpeutil reboot
