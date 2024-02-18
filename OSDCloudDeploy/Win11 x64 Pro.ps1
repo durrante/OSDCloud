@@ -137,8 +137,8 @@ Write-Host -ForegroundColor White "Ensure to run the C:\Windows\OOBEDeploy.cmd t
 Add-Type -AssemblyName System.Windows.Forms
 
 # Define the message and title for the MessageBox
-$message = "Please remove the build USB stick, click OK to restart your device and continue with the OSDCloud setup process by running c:\windows\OOBEDeploy.cmd after restart."
-$title = "Action Required Before Restart"
+$message = "Please remove the build USB stick, ensure that there are no errors in the above logs.`n`nIf no errors are present, click OK to restart this device and continue with the OSDCloud setup process by running c:\windows\OOBEDeploy.cmd after restart."
+$title = "Action Required"
 
 # Show the MessageBox and wait for the user to click OK
 [System.Windows.Forms.MessageBox]::Show($message, $title, [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
