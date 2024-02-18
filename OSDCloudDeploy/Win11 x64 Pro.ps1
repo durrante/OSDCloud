@@ -25,6 +25,8 @@ Install-Module OSD -Force -AllowClobber -SkipPublisherCheck
 Write-Host  -ForegroundColor Green "Importing OSD PowerShell Module"
 Import-Module OSD -Force 
 
+Write-Host "`n DISCLAIMER: - Going further will erase all data on your disk ! `n"-ForegroundColor Red
+
 #================================================
 #   [OS] Start-OSDCloud with Params
 #================================================
