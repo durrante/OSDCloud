@@ -50,7 +50,7 @@ Import-Module AutopilotOOBE -Force
 
 $Params = @{
     Title = 'Autopilot Registration'
-    GroupTagOptions = '2021', 'Base', 'DILKIOSK', 'EPAS', 'EPAA', 'ISL'
+    GroupTagOptions = '2021'
     Hidden = 'AddToGroup','AssignedComputerName','AssignedUser','PostAction'
     Assign = $true
     PostAction = 'Restart'
