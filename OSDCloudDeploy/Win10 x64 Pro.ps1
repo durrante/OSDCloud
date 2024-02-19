@@ -50,7 +50,7 @@ Import-Module AutopilotOOBE -Force
 
 $Params = @{
     Title = 'Autopilot Registration'
-    GroupTagOptions = '2021', 'Base', 'DILKIOSK', 'EPAS', 'EPAA', 'ISL'
+    GroupTagOptions = '2021'
     Hidden = 'AddToGroup','AssignedComputerName','AssignedUser','PostAction'
     Assign = $true
     PostAction = 'Restart'
@@ -84,6 +84,9 @@ set path=%path%;C:\Program Files\WindowsPowerShell\Scripts
 
 :: Open and Minimize a PowerShell instance just in case
 start PowerShell -NoL -W Mi
+
+:: Set Embedded BIOS Product Key
+Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://raw.githubusercontent.com/durrante/OSDCloud/main/ScriptPad/Set-EmbeddedBIOSProductKey.ps1
 
 :: Install the latest OSD Module
 start "Install-Module OSD" /wait PowerShell -NoL -C Install-Module OSD -Force -Verbose
