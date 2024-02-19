@@ -76,7 +76,7 @@ $trigger.Enabled = $true
 
 $action = $Task.Actions.Create(0)
 $action.Path = 'C:\OSDCloud\ServiceUI.exe'
-$action.Arguments = '-process:RuntimeBroker.exe C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe ' + $ScriptPathOOBE + ' -NoExit'
+$action.Arguments = "-process:RuntimeBroker.exe C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -Command `"$ScriptPathOOBE`" -NoExit"
 
 $taskFolder = $ShedService.GetFolder("\")
 # https://msdn.microsoft.com/en-us/library/windows/desktop/aa382577(v=vs.85).aspx
