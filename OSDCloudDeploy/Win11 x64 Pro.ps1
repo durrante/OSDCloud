@@ -85,6 +85,9 @@ set path=%path%;C:\Program Files\WindowsPowerShell\Scripts
 :: Open and Minimize a PowerShell instance just in case
 start PowerShell -NoL -W Mi
 
+:: Set Embedded BIOS Product Key
+Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://raw.githubusercontent.com/durrante/OSDCloud/main/ScriptPad/Set-EmbeddedBIOSProductKey.ps1
+
 :: Install the latest OSD Module
 start "Install-Module OSD" /wait PowerShell -NoL -C Install-Module OSD -Force -Verbose
 
@@ -121,6 +124,16 @@ start "Start-AutopilotOOBE" PowerShell -NoL -C Start-AutopilotOOBE
 exit
 '@
 $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -Force
+
+#================================================
+#  [PostOS] SetupComplete CMD Command Line
+#================================================
+Write-Host -ForegroundColor Green "Create C:\Windows\Setup\Scripts\SetupComplete.cmd"
+$SetupCompleteCMD = @'
+powershell.exe -Command Set-ExecutionPolicy RemoteSigned -Force
+powershell.exe -Command "& {Start-Process 'C:\Windows\OOBEDeploy.cmd' -Wait}"
+'@
+$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -Force
 
 #================================================
 #   PostOS
