@@ -131,7 +131,7 @@ $SetCommand | Out-File -FilePath "C:\Windows\Autopilot.cmd" -Encoding ascii -For
 Write-Host -ForegroundColor Green "Create C:\Windows\Setup\Scripts\SetupComplete.cmd"
 $SetupCompleteCMD = @'
 powershell.exe -Command Set-ExecutionPolicy RemoteSigned -Force
-powershell.exe -Command "& {Start-Process 'C:\Windows\OOBEDeploy.cmd' -Wait}"
+powershell.exe -Command Invoke-WebPSScript https://raw.githubusercontent.com/durrante/OSDCloud/main/ScriptPad/OOBECmd.ps1
 '@
 $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -Force
 
