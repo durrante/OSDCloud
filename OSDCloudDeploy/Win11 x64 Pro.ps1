@@ -1,7 +1,7 @@
 #================================================
 #   OSDCloud Build Sequence
 #   WARNING: Will wipe hard drive without prompt!!
-#   Windows 11 23H2 Pro en-gb Retail
+#   Windows 11 24H2 Pro en-gb Retail
 #   Deploys OS
 #   Updates OS
 #   Removes AppX Packages from OS
@@ -32,7 +32,7 @@ Write-Host "`n DISCLAIMER: - Going further will erase all data on your disk ! `n
 #   [OS] Start-OSDCloud with Params
 #================================================
 $Params = @{
-    OSName = "Windows 11 23H2 x64"
+    OSName = "Windows 11 24H2 x64"
     OSEdition = "Pro"
     OSLanguage = "en-gb"
     OSLicense = "Retail"
